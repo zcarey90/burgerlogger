@@ -1,4 +1,4 @@
-<div class="container">
+{{!-- <div class="container">
     <div class="row">
         <img src=>
         <h1>Burgerlogger</h1>
@@ -9,4 +9,15 @@
         {{#each burger_data}}
         {{#unless this.eaten}}
         <div class="col-md-9 text-center">
-        </div>
+        </div> --}}
+
+
+<p>I AM IN THE BURGER FILE</p>
+
+<p>{{name}}</p>
+
+{{each brgrs}}
+<p>Name: {{name}}</p>
+<p>Price: {{price}}</p>
+<p>Awesomeness: {{awesomeness}}</p>
+{{/each}}
