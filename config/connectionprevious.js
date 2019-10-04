@@ -9,7 +9,7 @@ if (process.env) {
     port: 8889,
     user: "root",
     password: "root",
-    database: burgers_db
+    database: "burgers_db"
   });
 }
 

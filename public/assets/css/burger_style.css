@@ -10,5 +10,15 @@ h1 {
 }
 
 img {
-  width: 50px;
+  width: 100%;
+  height: 160px;
+}
+
+#main {
+  display: flex;
+  justify-content: space-around;
+}
+
+.burger_container {
+  width: 40%;
 }

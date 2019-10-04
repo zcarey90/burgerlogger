@@ -1,23 +1,39 @@
-{{!-- <div class="container">
-    <div class="row">
-        <img src=>
-        <h1>Burgerlogger</h1>
+<div class="jumbotron">
+    <h1 class="display-4" style="text-align: center">Burger Logger!</h1>
+    <hr class="my-4">
+</div>
+
+<div id="main">
+    <div class="burger_container">
+        <img src="assets/img/baconcheese.jpg" alt="Bacon cheese" height="42" width="42"></img>
+        <ol>
+            {{#each brgrs}}
+            {{#unless devoured}}
+            {{> burger sleep=false}}
+            {{/unless}}
+            {{/each}}
+        </ol>
+    </div>
+    <div class="burger_container">
+        <img src="assets/img/baconcheese.jpg" alt="Bacon cheese" height="42" width="42"></img>
+        <ol>
+            {{#each brgrs}}
+            {{#if devoured}}
+            {{> burger sleep=false}}
+            {{/if}}
+            {{/each}}
+        </ol>
     </div>
 </div>
-<div class="row">
-    <div class="col-md-6 text-center" class="task">
-        {{#each burger_data}}
-        {{#unless this.eaten}}
-        <div class="col-md-9 text-center">
-        </div> --}}
 
 
-<p>I AM IN THE BURGER FILE</p>
 
-<p>{{name}}</p>
+{{!-- <p>I AM IN THE BURGER FILE</p>
 
-{{each brgrs}}
-<p>Name: {{name}}</p>
-<p>Price: {{price}}</p>
-<p>Awesomeness: {{awesomeness}}</p>
-{{/each}}
+<p>{{name}}</p> --}}
+
+{{!-- <ol>
+    {{#each brgrs}}
+    {{> burger sleep=false}}
+    {{/each}}
+</ol> --}}

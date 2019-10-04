@@ -3,32 +3,34 @@ var router = express.Router();
 
 var burger = require("../models/burger.js");
 
-router.get("/burgers", function(req, res) {
-  res.redirect("/burgers");
-});
+var burgers = [
+  { name: "hamburger", price: 10, awesomeness: 4 },
+  { name: "cheeseburger", price: 5, awesomeness: 8 },
+  { name: "baconburger", price: 3, awesomeness: 5 }
+];
 
-router.get("/burgers", function(req, res) {
+router.get("/", function(req, res) {
   burger.all(function(burger_info) {
-    res.render("index", { burger_info });
+    console.log(burger_info);
+    res.render("burgers", { brgrs: burger_info });
   });
 });
 
-router.post("/burgers/create", function(req, res) {
+router.post("/api/burgers", function(req, res) {
   if (req.body.burger_name == "") {
     console.log("No burger type requested");
-    res.redirect("/");
+    res.json("Error");
   } else {
     burger.create(req.body.burger_name, function(result) {
       console.log(result);
-      res.redirect("/");
+      res.json({ id: result.insertId });
     });
   }
 });
 
-router.put("/burgers/:id", function(req, res) {
+router.put("/api/burgers/:id", function(req, res) {
   burger.update(req.params.id, function(result) {
     console.log(result);
-    res.redirect;
   });
 });
 
