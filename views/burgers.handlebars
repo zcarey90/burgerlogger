@@ -1,15 +1,20 @@
 <div class="jumbotron">
     <h1 class="display-4" style="text-align: center">Burger Logger!</h1>
     <hr class="my-4">
+    <div class="col-sm-10">
+        <input type="text" class="form-control-plaintext" id="burgerInput" placeholder="New Burger">
+    </div>
 </div>
+
+
 
 <div id="main">
     <div class="burger_container">
         <img src="assets/img/baconcheese.jpg" alt="Bacon cheese" height="42" width="42"></img>
         <ol>
-            {{#each brgrs}}
+            {{#each burger_name}}
             {{#unless devoured}}
-            {{> burger sleep=false}}
+            {{> burger devoured=true}}
             {{/unless}}
             {{/each}}
         </ol>
@@ -17,9 +22,9 @@
     <div class="burger_container">
         <img src="assets/img/baconcheese.jpg" alt="Bacon cheese" height="42" width="42"></img>
         <ol>
-            {{#each brgrs}}
+            {{#each burger_name}}
             {{#if devoured}}
-            {{> burger sleep=false}}
+            {{> burger devoured=false}}
             {{/if}}
             {{/each}}
         </ol>

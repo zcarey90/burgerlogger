@@ -24,8 +24,8 @@ app.use(express.static("public"));
 
 // app.use(bodyParser.json());
 
-app.engine("handlebars", exphbrs({ defaultLayout: "main" }));
-app.set("view engine", "handlebars");
+// app.engine("handlebars", exphbrs({ defaultLayout: "main" }));
+// app.set("view engine", "handlebars");
 
 app.use(routes);
 

@@ -12,7 +12,7 @@ var burgers = [
 router.get("/", function(req, res) {
   burger.all(function(burger_info) {
     console.log(burger_info);
-    res.render("burgers", { brgrs: burger_info });
+    res.render("burgers", { burger_name: burger_info });
   });
 });
 
@@ -23,7 +23,8 @@ router.post("/api/burgers", function(req, res) {
   } else {
     burger.create(req.body.burger_name, function(result) {
       console.log(result);
-      res.json({ id: result.insertId });
+      // res.json({ id: result.insertId });
+      res.redirect("/");
     });
   }
 });
@@ -31,6 +32,18 @@ router.post("/api/burgers", function(req, res) {
 router.put("/api/burgers/:id", function(req, res) {
   burger.update(req.params.id, function(result) {
     console.log(result);
+  });
+});
+
+router.delete("/api/burgers/:id", function(req, res) {
+  var condition = "id = " + req.params.id;
+  burger.delete(condition, function(result) {
+    if (result.affectedRows == 0) {
+      // If no rows were changed, then the ID must not exist, so 404
+      return res.status(404).end();
+    } else {
+      res.status(200).end();
+    }
   });
 });
 

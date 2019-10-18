@@ -8,7 +8,7 @@ var burger = {
   },
 
   create: function(name, cb) {
-    orm.create("burgers", ["burger_company", "BurgerBros"], [name, false], cb);
+    orm.create("burgers", ["burger_name", "devoured"], [name, false], cb);
   },
 
   update: function(id, cb) {
@@ -16,15 +16,15 @@ var burger = {
     orm.update(
       "burgers",
       {
-        BurgerBros: true
+        devoured: true
       },
       condition,
       cb
     );
   },
 
-  delete: function(cb) {
-    orm.delete("burgers", function(res) {
+  delete: function(condition, cb) {
+    orm.delete("burgers", condition, function(res) {
       cb(res);
     });
   }
